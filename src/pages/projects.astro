@@ -1,0 +1,53 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import HorizontalCard from "../components/HorizontalCard.astro";
+---
+
+<BaseLayout title="作品" sideBarActiveItemID="projects">
+  <div>
+    <div class="text-3xl w-full font-bold mb-5">Claude Code skill</div>
+    <div class="text-base opacity-70 mb-5">
+      每一个都是和 Claude 干活时踩的坑封死之后的产物。
+    </div>
+  </div>
+
+  <HorizontalCard
+    title="三省 · sansheng"
+    img="/cover-sansheng.png"
+    desc="多 sub-agent 并行调研。3 个 agent 各看一眼，主 agent 综合时保留少数派的「我不知道」。OpenRouter Fusion API 思路本地落地。"
+    url="https://github.com/DQT-bit/claude-skill-sansheng"
+    badge="2026-06-17"
+  />
+  <div class="divider my-0"></div>
+  <HorizontalCard
+    title="微读 · weidu"
+    img="/cover-weidu.png"
+    desc="读 mp.weixin.qq.com 公众号文章。绕反爬 + 双容器兜底，PowerShell + Python 不到 80 行。"
+    url="https://github.com/DQT-bit/claude-skill-weidu"
+    badge="2026-06-17"
+  />
+  <div class="divider my-0"></div>
+  <HorizontalCard
+    title="拟稿 · nigao"
+    img="/cover-nigao.png"
+    desc="公号草稿生成。一句话触发自动出 markdown + 富文本 HTML + 大小封面 + 摘要，端到端绕开 mdnice。"
+    url="https://github.com/DQT-bit/claude-skill-nigao"
+    badge="WIP"
+  />
+
+  <div>
+    <div class="text-3xl w-full font-bold mb-5 mt-10">其他副业项目</div>
+  </div>
+
+  <HorizontalCard
+    title="PageSage"
+    desc="Chrome 扩展。诚实摘要 AI 侧边栏，已上 Chrome Web Store。"
+    url="#"
+  />
+  <div class="divider my-0"></div>
+  <HorizontalCard
+    title="QingPDF（轻PDF）"
+    desc="自建 PDF 工具站，IP-only 部署。"
+    url="#"
+  />
+</BaseLayout>

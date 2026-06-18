@@ -1,0 +1,78 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import HorizontalCard from "../components/HorizontalCard.astro";
+import { getCollection } from "astro:content";
+import createSlug from "../lib/createSlug"
+
+const posts = (await getCollection("blog")).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const last_posts = posts.slice(0, 3);
+---
+
+<BaseLayout sideBarActiveItemID="home">
+  <div class="pb-12 mt-5">
+    <div class="text-xl py-1">你好 👋</div>
+    <div class="text-5xl font-bold">我是 DQT</div>
+    <div class="text-3xl py-3 font-bold">独立开发者 · Claude Code skill / AI 副业工具</div>
+    <div class="py-2">
+      <text class="text-lg">
+        把每次和 AI 干活时踩的坑封死成 <b>skill</b>，发到 GitHub。<br/>
+        在公号「<b>拧 AI 螺丝</b>」记录过程。
+      </text>
+    </div>
+    <div class="mt-8">
+      <a class="btn" href="/blog/"> 看博客 </a>
+      <a href="https://github.com/DQT-bit" target="_blank" class="btn btn-outline ml-5">
+        GitHub
+      </a>
+    </div>
+  </div>
+
+  <div>
+    <div class="text-3xl w-full font-bold mb-2">最近做的几个 skill</div>
+  </div>
+
+  <HorizontalCard
+    title="三省 · sansheng"
+    img="/cover-sansheng.png"
+    desc="多 sub-agent 并行调研工坊。把 OpenRouter Fusion API 的 panel + judge + 综合思路，搬进 Claude Code 原生 Agent tool。关键：保留少数派的「我不知道」，不让多数票淹没。"
+    url="https://github.com/DQT-bit/claude-skill-sansheng"
+    badge="NEW"
+  />
+  <div class="divider my-0"></div>
+  <HorizontalCard
+    title="微读 · weidu"
+    img="/cover-weidu.png"
+    desc="读 mp.weixin.qq.com 公众号文章的稳定姿势。绕开 Jina / WebFetch / 编码污染等多层反爬。HttpWebRequest 原始字节 + 双容器兜底。"
+    url="https://github.com/DQT-bit/claude-skill-weidu"
+    badge="NEW"
+  />
+  <div class="divider my-0"></div>
+  <HorizontalCard
+    title="拟稿 · nigao"
+    img="/cover-nigao.png"
+    desc="公号草稿生成工坊。一句话触发，自动产出 markdown 文章 + 富文本 HTML + 大小封面 + 摘要，端到端绕开 mdnice。"
+    url="https://github.com/DQT-bit/claude-skill-nigao"
+    badge="WIP"
+  />
+
+  <div>
+    <div class="text-3xl w-full font-bold mb-5 mt-10">博客最新</div>
+  </div>
+
+  {
+    last_posts.map((post) => (
+      <>
+        <HorizontalCard
+          title={post.data.title}
+          img={post.data.heroImage}
+          desc={post.data.description}
+          url={"/blog/" + createSlug(post.data.title, post.slug)}
+          target="_self"
+          badge={post.data.badge}
+        />
+        <div class="divider my-0" />
+      </>
+    ))
+  }
+</BaseLayout>
