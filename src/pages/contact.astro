@@ -1,0 +1,59 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="联系" sideBarActiveItemID="contact">
+  <div>
+    <div class="text-3xl w-full font-bold mb-5">联系 DQT</div>
+    <div class="text-base opacity-70 mb-8">
+      想交流、合作、报 bug、聊聊副业，欢迎找我。
+    </div>
+  </div>
+
+  <div class="space-y-6">
+    <!-- GitHub -->
+    <div class="border-l-4 border-base-content/30 pl-4">
+      <div class="text-xl font-bold mb-1">GitHub</div>
+      <a href="https://github.com/DQT-bit" target="_blank" class="link link-primary">@DQT-bit</a>
+      <div class="text-sm opacity-60 mt-1">代码、skill 仓库都在这里。提 issue / PR 最直接。</div>
+    </div>
+
+    <!-- 公号 -->
+    <div class="border-l-4 border-base-content/30 pl-4">
+      <div class="text-xl font-bold mb-1">公众号「拧 AI 螺丝」</div>
+      <div class="text-sm opacity-80">
+        一个开发者的 AI 实战笔记。Claude / Codex / 国产大模型实测、踩坑分享、副业项目复盘。
+      </div>
+      <div class="text-sm opacity-60 mt-2">
+        微信里搜「拧 AI 螺丝」即可关注。
+      </div>
+    </div>
+
+    <!-- 邮箱（防爬：用 JS 拼接，HTML 源里看不到完整地址） -->
+    <div class="border-l-4 border-base-content/30 pl-4">
+      <div class="text-xl font-bold mb-1">邮箱</div>
+      <div id="email-container" class="text-base opacity-80">[加载中…]</div>
+      <div class="text-sm opacity-60 mt-1">
+        合作 / 反馈 / 报 bug 都可以发。请说明来意，否则可能被过滤。
+      </div>
+    </div>
+
+    <!-- RSS -->
+    <div class="border-l-4 border-base-content/30 pl-4">
+      <div class="text-xl font-bold mb-1">RSS</div>
+      <a href="/rss.xml" target="_blank" class="link link-primary">/rss.xml</a>
+      <div class="text-sm opacity-60 mt-1">订阅博客更新，新文自动到你的 RSS 阅读器。</div>
+    </div>
+  </div>
+
+  <!-- 邮箱防爬：拆分字符串 + JS 拼接 -->
+  <script>
+    const u = "namechristmas982";
+    const d = "gmail.com";
+    const email = u + "@" + d;
+    const el = document.getElementById("email-container");
+    if (el) {
+      el.innerHTML = `<a class="link link-primary" href="mailto:${email}">${email}</a>`;
+    }
+  </script>
+</BaseLayout>
