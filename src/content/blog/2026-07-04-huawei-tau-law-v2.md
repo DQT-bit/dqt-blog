@@ -1,5 +1,5 @@
 ---
-title: "华为今天更新韬定律：从讲概念，到交作业"
+title: "华为韬定律V2来了：国产AI多了一条路"
 description: "华为发布韬定律V2，补充逻辑折叠、Kirin 2026实测数据和产品路线。它对国产AI的价值不只在芯片性能，还在互连、存储与集群协同。"
 pubDate: "Jul 04 2026"
 heroImage: "/huawei-tau-law-v2-cover.png"
